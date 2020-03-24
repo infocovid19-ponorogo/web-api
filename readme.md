@@ -6,7 +6,7 @@
 **Password:** secret
 
 ### Instalasi
-`
+```
 composer install
 cp .env.example .env
 php artisan migrate:fresh --seed
@@ -14,14 +14,14 @@ php artisan key:generate
 php artisan passport:install
 
 php artisan serve
-`
+```
 
-### Route
+### Route & API
 
-`/admin/kecamatan`
-
-API
-`/api/auth/login`
-`/api/kecamatan`
+```
+/admin/kecamatan
+/api/auth/login
+/api/kecamatan
+```
 
 
