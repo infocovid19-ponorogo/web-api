@@ -32,7 +32,8 @@ class KecamatanController extends Controller
 
     public function indexJson(ManageBackendRequest $request)
     {
-        $kecamatan = $this->kecamatanRepo->get();
+        $kecamatan = $this->kecamatanRepo->orderBy('updated_at', 'desc')->get();
+        $first = $kecamatan->first();
         $result['summary'] = [
             'odr_total' => $kecamatan->reduce(function($i, $k) {
                     return $i + $k->odr;
@@ -55,6 +56,7 @@ class KecamatanController extends Controller
             'sembuh_total' => $kecamatan->reduce(function($i, $k) {
                 return $i + $k->sembuh;
             }, 0),
+            'last_update_at' => $first->updated_at->format('Y-m-d H:i:s')
         ];
         $result['kecamatan'] = $kecamatan;
         if ($result) 
