@@ -32,7 +32,31 @@ class KecamatanController extends Controller
 
     public function indexJson(ManageBackendRequest $request)
     {
-        $result = $this->kecamatanRepo->get();
+        $kecamatan = $this->kecamatanRepo->get();
+        $result['summary'] = [
+            'odr_total' => $kecamatan->reduce(function($i, $k) {
+                    return $i + $k->odr;
+            }, 0),
+            'odp_total' => $kecamatan->reduce(function($i, $k) {
+                    return $i + $k->odp;
+            }, 0),
+            'pdp_total' => $kecamatan->reduce(function($i, $k) {
+                    return $i + $k->pdp;
+            }, 0),
+            'probable_total' => $kecamatan->reduce(function($i, $k) {
+                    return $i + $k->probable;
+            }, 0),
+            'positif_total' => $kecamatan->reduce(function($i, $k) {
+                return $i + $k->positif;
+            }, 0),
+            'meninggal_total' => $kecamatan->reduce(function($i, $k) {
+                return $i + $k->meninggal;
+            }, 0),
+            'sembuh_total' => $kecamatan->reduce(function($i, $k) {
+                return $i + $k->sembuh;
+            }, 0),
+        ];
+        $result['kecamatan'] = $kecamatan;
         if ($result) 
         return response()->json($result, 200);
     }
