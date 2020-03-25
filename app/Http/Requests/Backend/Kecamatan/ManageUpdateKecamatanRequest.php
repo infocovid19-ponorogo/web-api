@@ -27,13 +27,13 @@ class ManageUpdateKecamatanRequest extends FormRequest
             'nama' => ['required', 'string'],
             'longitude' => ['required', 'string'],
             'latitude' => ['required', 'string'],
-            'odp' => ['required', 'number'],
-            'odr' => ['required', 'number'],
-            'pdp' => ['required', 'number'],
-            'probable' => ['required', 'number'],
-            'positif' => ['required', 'number'],
-            'meninggal' => ['required', 'number'],
-            'sembuh' => ['required', 'number'],
+            'odp' => ['required', 'numeric'],
+            'odr' => ['required', 'numeric'],
+            'pdp' => ['required', 'numeric'],
+            'probable' => ['required', 'numeric'],
+            'positif' => ['required', 'numeric'],
+            'meninggal' => ['required', 'numeric'],
+            'sembuh' => ['required', 'numeric'],
         ];
     }
 }
