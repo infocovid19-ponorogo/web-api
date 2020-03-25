@@ -6,13 +6,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-  <link type="text/css" rel="stylesheet" href="http://coryasilva.github.io/Leaflet.ExtraMarkers/css/leaflet.extra-markers.min.css"/>
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet-src.js"></script>
-  <script src="http://coryasilva.github.io/Leaflet.ExtraMarkers/js/leaflet.extra-markers.min.js"></script>
+  
   <style>
     html,
     body,
@@ -104,14 +103,7 @@
 
     populate();
 
-    var blue = L.ExtraMarkers.icon({
-        markerColor: 'blue',
-        shape: 'square',
-        prefix: 'fa',
-        icon: 'fa-number',
-        number: '42',
-        svg: true,
-    });    
+
     //Add 200 markers to each of the groups/layers
     function populate() {
        
@@ -142,84 +134,7 @@
         });
        
     }
-
-    function blueColor(val)
-    {
-        return L.ExtraMarkers.icon({
-            shape: 'star',
-            markerColor: 'blue',
-            prefix: 'fa',
-            icon: 'fa-number',
-            iconColor: '#fff',
-            iconRotate: 0,
-            extraClasses: '',
-            number: ''+val+'',
-            prefix: val,
-            svg: true
-            
-        });    
-    }
-
-    function orangeColor(val){
-        return L.ExtraMarkers.icon({
-            shape: 'star',
-            markerColor: 'orange',
-            prefix: '',
-            icon: 'fa-number',
-            iconColor: '#fff',
-            iconRotate: 0,
-            extraClasses: '',
-            number: ''+val+'',
-            svg: true
-            
-        });    
-    }
-
-    function yellowColor(val){
-        return L.ExtraMarkers.icon({
-            shape: 'star',
-            markerColor: 'yellow',
-            prefix: '',
-            icon: 'fa-number',
-            iconColor: '#fff',
-            iconRotate: 0,
-            extraClasses: '',
-            number: ''+val+'',
-            svg: true
-            
-        });    
-    }
-
-
-    function greenColor(val){
-        return L.ExtraMarkers.icon({
-            shape: 'star',
-            markerColor: 'green',
-            prefix: '',
-            icon: 'fa-number',
-            iconColor: '#fff',
-            iconRotate: 0,
-            extraClasses: '',
-            number: ''+val+'',
-            svg: true
-            
-        });    
-    }
-
-    function redColor(val){
-        return L.ExtraMarkers.icon({
-            shape: 'star',
-            markerColor: 'red',
-            prefix: '',
-            icon: 'fa-number',
-            iconColor: '#fff',
-            iconRotate: 0,
-            extraClasses: '',
-            number: ''+val+'',
-            svg: true
-            
-        });    
-    }
+ 
 
     function getRandomLatLng(latitude,longitude) {
       return [
