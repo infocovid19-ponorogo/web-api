@@ -17,7 +17,7 @@
     html,
     body,
     #leaflet {
-      height: 90%
+      height: 400px
     }
     /*Legend specific*/
 .legend {
