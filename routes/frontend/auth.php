@@ -35,6 +35,9 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
     // These routes require no user to be logged in
     Route::group(['middleware' => 'guest'], function () {
         // Authentication Routes
+        Route::get('maps',function(){
+            return view('frontend.maps.index');
+        });
         Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
         Route::post('login', [LoginController::class, 'login'])->name('login.post');
 
