@@ -26,3 +26,24 @@ Breadcrumbs::for('admin.kecamatan.edit', function ($trail, $id) {
     $trail->parent('admin.kecamatan.index');
     $trail->push('Tambah', route('admin.kecamatan.edit', $id));
 });
+
+
+Breadcrumbs::for('admin.news.index', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('News', route('admin.news.index'));
+});
+
+Breadcrumbs::for('admin.news.create', function ($trail) {
+    $trail->parent('admin.news.index');
+    $trail->push('Tambah', route('admin.news.create'));
+});
+
+Breadcrumbs::for('admin.news.show', function ($trail, $id) {
+    $trail->parent('admin.news.index');
+    $trail->push('Tambah', route('admin.news.show', $id));
+});
+
+Breadcrumbs::for('admin.news.edit', function ($trail, $id) {
+    $trail->parent('admin.news.index');
+    $trail->push('Tambah', route('admin.news.edit', $id));
+});

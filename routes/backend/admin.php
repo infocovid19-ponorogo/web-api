@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\BimbinganController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KecamatanController;
+use App\Http\Controllers\Backend\NewsController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -18,5 +19,18 @@ Route::group(['prefix' => 'kecamatan'], function() {
     Route::get('/edit', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
     Route::post('/', [KecamatanController::class, 'update'])->name('kecamatan.update');
     Route::delete('/', [KecamatanController::class, 'destroy'])->name('kecamatan.destroy');
+  });
+});
+
+Route::group(['prefix' => 'news'], function() {
+  Route::get('/', [NewsController::class, 'index'])->name('news.index');
+  Route::get('/create', [NewsController::class, 'create'])->name('news.create');
+  Route::post('/', [NewsController::class, 'store'])->name('news.store');
+
+  Route::group(['prefix' => '/{news}'], function(){
+    Route::get('/', [NewsController::class, 'show'])->name('news.show');
+    Route::get('/edit', [NewsController::class, 'edit'])->name('news.edit');
+    Route::post('/', [NewsController::class, 'update'])->name('news.update');
+    Route::delete('/', [NewsController::class, 'destroy'])->name('news.destroy');
   });
 });
