@@ -2,6 +2,9 @@
 
 @section('title', app_name() . ' | Bimbingan')
 
+@push('after-styles')
+<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+@endpush
 
 @section('content')
 {{ html()->form('POST', route('admin.news.store'))->class('form-horizontal')->open() }}
@@ -34,7 +37,7 @@
                         <div class="form-group row">
                             {{ html()->label("Konten")->class('col-md-2 form-control-label')->for('content') }}
                             <div class="col-md-10">
-                                {{ html()->text('content')
+                                {{ html()->textarea('content')
                                     ->class('form-control')
                                     ->placeholder('Konten')
                                     ->required()
@@ -97,3 +100,9 @@
         </div><!--card-->
     {{ html()->form()->close() }}
 @endsection
+
+@push('after-scripts')
+<script>
+    CKEDITOR.replace('content')
+</script>
+@endpush
