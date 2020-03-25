@@ -149,9 +149,9 @@ class KecamatanController extends Controller
             'sembuh',
         ]);
 
-        $result = $this->kecamatanRepo->update($data);
+        $result = $this->kecamatanRepo->updateById($kecamatan->id, $data);
         if ($result) 
-        return response()->json($result, 200);
+        return redirect(route('admin.kecamatan.index'));
     }
 
     /**
