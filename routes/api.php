@@ -45,6 +45,8 @@
 use App\Http\Controllers\Backend\Auth\Role\RoleController;
 use App\Http\Controllers\Backend\Auth\User\UserController;
 use App\Http\Controllers\Backend\KecamatanController;
+use App\Http\Controllers\Backend\ProvinsiController;
+
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\Auth\ApiLoginController;
 
@@ -67,16 +69,26 @@ Route::group([
 
 Route::group([
     'prefix' => 'kecamatan',
-    'middleware' => 'api'
+    'middleware' => 'cors'
 ], function () {
 
     Route::get('/', [KecamatanController::class, 'indexJson']);
     Route::get('/{kecamatan}', [KecamatanController::class, 'showJson']);
 });
 
+
+Route::group([
+    'prefix' => 'provinsi',
+    'middleware' => 'cors'
+], function () {
+
+    Route::get('/', [ProvinsiController::class, 'indexJson']);
+    Route::get('/{provinsi}', [ProvinsiController::class, 'showJson']);
+});
+
 Route::group([
     'prefix' => 'berita',
-    'middleware' => 'api'
+    'middleware' => 'cors'
 ], function () {
 
     Route::get('/', [NewsController::class, 'indexJson']);

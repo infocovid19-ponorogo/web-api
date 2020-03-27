@@ -109,7 +109,7 @@
        
         $.ajax({ 
             type: 'GET', 
-            url: "{{url('api/kecamatan')}}", 
+            url: "{{secure_url('api/kecamatan')}}", 
             dataType: 'json',
             success: function (data) { 
                 $.each( data.kecamatan, function( key, val ) {
@@ -117,11 +117,26 @@
                     console.log(val.latitude+","+val.longitude);
                     console.log(getRandomLatLng(val.latitude,val.longitude));
                     
-                    L.circleMarker(getRandomLatLng(val.latitude,val.longitude), {className: 'pulse',color:'blue'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>ODR :" +val.odr+"");
-                    L.circleMarker(getRandomLatLngTwo(val.latitude,val.longitude), {className: 'pulse',color:'orange'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>ODP :" +val.odp+"");
-                    L.circleMarker(getRandomLatLngThree(val.latitude,val.longitude), {className: 'pulse',color:'yellow'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>PDP :" +val.pdp+"");
-                    L.circleMarker(getRandomLatLngFour(val.latitude,val.longitude), {className: 'pulse',color:'green'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>Probable :" +val.probable+"");
-                    L.circleMarker(getRandomLatLngFive(val.latitude,val.longitude), {className: 'pulse',color:'red'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>Positif :" +val.positif+"");
+                    if(parseInt(val.odr)!=0){
+                      L.circleMarker(getRandomLatLng(val.latitude,val.longitude), {className: 'pulse',color:'blue'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>ODR :" +val.odr+"");
+                    }
+                    if(parseInt(val.odp)!=0){
+                      L.circleMarker(getRandomLatLngTwo(val.latitude,val.longitude), {className: 'pulse',color:'orange'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>ODP :" +val.odp+"");
+
+                    }
+                    if(parseInt(val.pdp)!=0){
+                      L.circleMarker(getRandomLatLngThree(val.latitude,val.longitude), {className: 'pulse',color:'yellow'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>PDP :" +val.pdp+"");
+
+                    }
+                    if(parseInt(val.probable)!=0){
+                      L.circleMarker(getRandomLatLngFour(val.latitude,val.longitude), {className: 'pulse',color:'green'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>Probable :" +val.probable+"");
+
+                    }
+                    if(parseInt(val.positif)!=0){
+                      L.circleMarker(getRandomLatLngFive(val.latitude,val.longitude), {className: 'pulse',color:'red'}).addTo(map).bindPopup("<b>Kecamatan "+val.nama+"</b><br>Positif :" +val.positif+"");
+
+                    }                    
+                    
 
 
                     

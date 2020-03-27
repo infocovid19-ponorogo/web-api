@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\BimbinganController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\KecamatanController;
+use App\Http\Controllers\Backend\ProvinsiController;
 use App\Http\Controllers\Backend\NewsController;
 
 // All route names are prefixed with 'admin.'.
@@ -21,6 +22,20 @@ Route::group(['prefix' => 'kecamatan'], function() {
     Route::delete('/', [KecamatanController::class, 'destroy'])->name('kecamatan.destroy');
   });
 });
+
+Route::group(['prefix' => 'provinsi'], function() {
+  Route::get('/', [ProvinsiController::class, 'index'])->name('provinsi.index');
+  Route::get('/create', [ProvinsiController::class, 'create'])->name('provinsi.create');
+  Route::post('/', [ProvinsiController::class, 'store'])->name('provinsi.store');
+
+  Route::group(['prefix' => '/{kecamatan}'], function(){
+    Route::get('/', [ProvinsiController::class, 'show'])->name('provinsi.show');
+    Route::get('/edit', [ProvinsiController::class, 'edit'])->name('provinsi.edit');
+    Route::post('/', [ProvinsiController::class, 'update'])->name('provinsi.update');
+    Route::delete('/', [ProvinsiController::class, 'destroy'])->name('provinsi.destroy');
+  });
+});
+
 
 Route::group(['prefix' => 'news'], function() {
   Route::get('/', [NewsController::class, 'index'])->name('news.index');

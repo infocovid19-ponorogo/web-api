@@ -42,6 +42,36 @@
                 </ul>
             </li>
 
+
+            <li class="nav-item nav-dropdown {{
+                active_class(Active::checkUriPattern('admin/provinsi*'), 'open')
+            }}">
+                <a class="nav-link nav-dropdown-toggle {{
+                    active_class(Active::checkUriPattern('admin/provinsi*'))
+                }}" href="#">
+                    <i class="nav-icon far fa-user"></i>
+                    Provinsi
+                </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{
+                            active_class(Active::checkUriPattern('admin/provinsi'))
+                        }}" href="{{ route('admin.provinsi.index') }}">
+                            Provinsi
+                        </a>
+                    </li>
+                    @if ($logged_in_user->isAdmin())
+                    <li class="nav-item">
+                        <a class="nav-link {{
+                            active_class(Active::checkUriPattern('admin/provinsi/create'))
+                        }}" href="{{ route('admin.provinsi.create') }}">
+                            Tambah
+                        </a>
+                    </li>
+                    @endif
+                </ul>
+            </li>
+
             <li class="nav-item nav-dropdown {{
                 active_class(Active::checkUriPattern('admin/news*'), 'open')
             }}">

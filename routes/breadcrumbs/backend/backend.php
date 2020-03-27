@@ -28,6 +28,29 @@ Breadcrumbs::for('admin.kecamatan.edit', function ($trail, $id) {
 });
 
 
+//provinsi
+
+Breadcrumbs::for('admin.provinsi.index', function ($trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('provinsi', route('admin.provinsi.index'));
+});
+
+Breadcrumbs::for('admin.provinsi.create', function ($trail) {
+    $trail->parent('admin.provinsi.index');
+    $trail->push('Tambah', route('admin.provinsi.create'));
+});
+
+Breadcrumbs::for('admin.provinsi.show', function ($trail, $id) {
+    $trail->parent('admin.provinsi.index');
+    $trail->push('Tambah', route('admin.provinsi.show', $id));
+});
+
+Breadcrumbs::for('admin.provinsi.edit', function ($trail, $id) {
+    $trail->parent('admin.provinsi.index');
+    $trail->push('Tambah', route('admin.provinsi.edit', $id));
+});
+
+
 Breadcrumbs::for('admin.news.index', function ($trail) {
     $trail->parent('admin.dashboard');
     $trail->push('News', route('admin.news.index'));
